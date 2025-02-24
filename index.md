@@ -1,7 +1,3 @@
-title: "Solara: A Framework for Creating Interactive Data Dashboards in Python"
-description: "A guide to using Solara for building interactive dashboards with Python."
----
-
 # Solara: A Framework for Creating Interactive Data Dashboards in Python  
 
 ## Table of Contents  
