@@ -1,34 +1,46 @@
 # Solara: A Framework for Creating Interactive Data Dashboards in Python  
 
 ## Table of Contents  
-1. [What is Solara?](#what-is-solara)  
-2. [Purpose](#purpose)  
-3. [Why Use Solara?](#why-use-solara)  
-4. [Installation & Setup](#installation--setup)  
-5. [Key Features & Explanation](#key-features--explanation)  
-6. [Code Examples & Illustrations](#code-examples--illustrations)  
-7. [Practical Use Cases](#practical-use-cases)  
-8. [Conclusion](#conclusion)  
-9. [References & Further Reading](#references--further-reading)  
+1. [Introduction](#introduction)  
+2. [Installation & Setup](#installation--setup)  
+3. [Key Features & Explanation](#key-features--explanation)  
+4. [Code Examples & Illustrations](#code-examples--illustrations)  
+5. [Practical Use Cases](#practical-use-cases)  
+6. [Conclusion](#conclusion)  
+7. [References & Further Reading](#references--further-reading)  
 
 ---
 
-## What is Solara?  
+## Introduction  
+### What is Solara?  
 Solara is an open-source Python framework designed to **create interactive dashboards and web applications** effortlessly. It combines **React-like interactivity** with Python's simplicity, making it an ideal tool for data-driven applications.  
 
----
-
-## Purpose  
+### Purpose  
 The main goal of Solara is to provide a **Pythonic way** to build highly **interactive and responsive dashboards** without needing JavaScript. It simplifies UI development while integrating well with **Jupyter, FastAPI, and data visualization tools**.  
 
----
-
-## Why Use Solara?  
+### Why Use Solara?  
 - **Easy to Learn**: Uses Python instead of JavaScript.
 - **Highly Interactive**: React-style state management.
 - **Seamless Integration**: Works with Jupyter, FastAPI, and plotting libraries.
 - **Flexible UI Components**: Sliders, buttons, and dropdowns built-in.
 - **Ideal for Data Scientists**: No frontend expertise needed.  
+
+### Working Example
+#### Example: Simple Interactive Counter
+```python
+import solara
+
+@solara.component
+def Counter():
+    count = solara.use_state(0)
+    solara.Button("Increase", on_click=lambda: count.set(count.value + 1))
+    solara.Text(f"Current Count: {count.value}")
+
+solara.run(Counter)
+```
+
+#### Screenshot: Simple Counter Example
+![Solara Counter Example](https://via.placeholder.com/600x400.png?text=Solara+Counter+Demo)
 
 ---
 
@@ -67,6 +79,9 @@ def Page():
 solara.run(Page)
 ```
 
+#### Screenshot: Name Input and Greeting Example
+![Solara Greeting Example](https://via.placeholder.com/600x400.png?text=Solara+Greeting+Demo)
+
 ### 2️⃣ Using a Slider to Control a Graph  
 ```python
 import solara
@@ -88,32 +103,8 @@ def Page():
 solara.run(Page)
 ```
 
-### 3️⃣ Dynamic Dropdown Example  
-```python
-import solara
-
-@solara.component
-def Page():
-    options = ["Apple", "Banana", "Cherry"]
-    selected = solara.use_state(options[0])
-    solara.Select("Choose a fruit", options, selected)
-    solara.Text(f"You selected: {selected.value}")
-
-solara.run(Page)
-```
-
-### 4️⃣ Interactive Checkbox Example  
-```python
-import solara
-
-@solara.component
-def Page():
-    checked = solara.use_state(False)
-    solara.Checkbox("Enable Feature", checked)
-    solara.Text(f"Feature enabled: {checked.value}")
-
-solara.run(Page)
-```
+#### Screenshot: Interactive Graph Example
+![Solara Graph Example](https://via.placeholder.com/600x400.png?text=Solara+Graph+Demo)
 
 ---
 
